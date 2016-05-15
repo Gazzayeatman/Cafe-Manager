@@ -12,9 +12,11 @@ class HyperLink{
 		$this->link = $link;
 		$website->addLink($id,$this);
 	}
+	
 	public function returnLink(){
 		return "<a class='".$this->divClass."' href=".$this->link." id=".$this->id.">".$this->name."</a>";
 	}
+	
 	public function returnGenericModalLink($id){
 		return "<button type='button' class='btn ".$this->divClass."' data-toggle='modal' data-target='#".$id."'>".$this->name."</button>";
 	}

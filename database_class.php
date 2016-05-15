@@ -8,6 +8,7 @@ class Database{
 	public $conn;
 	public $bulletins = array();
 	public $cafes = array();
+	public $users = array();
 	
 	public function __construct($server,$username,$password,$database){
 		$this->server = $server;
@@ -83,6 +84,21 @@ class Database{
 			$b = new Cafe($id,$name,$address);
 			$this->cafes[$id] = $b;
 		}
+	}
+	public function addUsers(){
+		$db2 = $this->conn;
+		$sql = "SELECT * FROM Users";
+		$result = $db2->query($sql);
+		while ($row = $result->fetch_array()){
+			$id = $row['id'];
+			$name = $row['name'];
+			$address = $row['address'];
+			$b = new Cafe($id,$name,$address);
+			$this->cafes[$id] = $b;
+		}
+	}
+	public function getCafe($id){
+		return $this->cafes[$id];
 	}
 	public function getCafeNames(){
 		$result = "";

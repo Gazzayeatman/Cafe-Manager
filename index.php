@@ -40,11 +40,14 @@ session_start();
 	include "bootstrap_row_class.php";
 	include "modal_class.php";
 	include "index_code.php";
-	include "hyperlinks.php";
+	include "account_manager_code.php";
 	//Change to switch
 	switch ($page){
 		case "index":
 			echo $index->returnWebsite();
+			break;
+		case "accountManager":
+			echo $accountManager->returnWebsite();
 			break;
 		default:
 			echo $index->returnWebsite();
